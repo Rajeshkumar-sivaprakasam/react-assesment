@@ -1,19 +1,30 @@
-import React from 'react'
-import { ListGroup } from 'react-bootstrap';
-import { PostInterface } from '../../model/PostModel'
+import React from "react";
+import { PostInterface } from "../../model/PostModel";
 
-interface PostItemprops{
-    post:PostInterface
+interface PostItemprops {
+	post: PostInterface;
 }
 
-const PostItem = ({post}:PostItemprops) => {
-  return (
-		<div>
-				<h2>{post.title}</h2>
-                <p> {post.body}</p>
-                <p style={{textAlignLast:'center'}}>created by {post.id}</p>
+const PostItem = ({ post }: PostItemprops) => {
+	return (
+		<div className="container">
+			<div className="row">
+				<div className="col">
+					<h2>{post.title}</h2>
+				</div>
+			</div>
+			<div className="row">
+				<div className="col">
+					<p> {post.body}</p>
+				</div>
+			</div>
+			<div className="row">
+				<div className="col" style={{ textAlignLast: "right" }}>
+					created by {post.id}
+				</div>
+			</div>
 		</div>
 	);
-}
+};
 
-export default PostItem
+export default PostItem;
