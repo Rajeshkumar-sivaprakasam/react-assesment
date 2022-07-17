@@ -4,12 +4,14 @@ import { UsersInterface } from '../model/UserModel';
 
 interface props {
 	userList: UsersInterface[];
-	postList: PostInterface[]
+	postList: PostInterface[];
+	selectedId: number;
 }
-//create valtio 
- const state:props = proxy({
-    userList: [] ,
-    postList:[]
-})
+//create valtio
+const state: props = proxy({
+	userList: [],
+	postList: [],
+	selectedId: 0,
+});
 
 export default state;

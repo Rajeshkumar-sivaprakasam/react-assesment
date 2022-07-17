@@ -7,11 +7,4 @@ export class PostService {
 		if(!response) return
 		 return response.data;
 	};
-	static getElementByUserId = async (id:number) => {
-		const response = await api
-			.get<PostInterface[]>(`posts?/userId=${id}`)
-			.catch(() => null);
-		if (!response) return;
-		 return response.data;
-	};
 }

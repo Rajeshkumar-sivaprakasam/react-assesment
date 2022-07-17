@@ -1,10 +1,8 @@
-import React from 'react';
-
+import React from "react";
+import { RouteScreen } from "./Components/RouteScreen";
 
 function App() {
-  return (
-    <div>Hello world</div>
-  );
+	return <RouteScreen />;
 }
 
 export default App;
