@@ -1,3 +1,4 @@
+import { UsersInterface } from "../model/UserModel";
 import { PostService } from "../services/PostService";
 import { UserService } from "../services/UserService";
 import state from "../store";
@@ -9,10 +10,10 @@ export class PostManager {
 		state.postList = postList;
 	};
 
-	static getElementByUserId = async (id: number) => {
-		const postIdList = await UserService.getElementByUserId(id);
+	static getElementByUserId = async (user: UsersInterface) => {
+		const postIdList = await UserService.getElementByUserId(user.id);
 		if (!postIdList) return;
-		state.selectedId = id; //selected id not updating here
+		state.selectedUser = user;
 		state.postList = postIdList;
 	};
 }

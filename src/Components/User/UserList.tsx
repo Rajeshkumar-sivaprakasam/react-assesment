@@ -8,13 +8,12 @@ import "./user.css";
 import { UserItem } from "./UserItem";
 
 export const UserList = () => {
-	const { selectedId } = useSnapshot(state);
 	const { userList: users } = useSnapshot(state);
 	const fetchUser = () => {
 		UserManager.getAll();
 	};
-	const fetchPostById = (userId: number) => {
-		PostManager.getElementByUserId(userId);
+	const fetchPostById = (user: UsersInterface) => {
+		PostManager.getElementByUserId(user);
 	};
 	useEffect(() => {
 		fetchUser();
@@ -25,7 +24,7 @@ export const UserList = () => {
 				<div
 					style={{ cursor: "pointer" }}
 					key={user.id.toString()}
-					onClick={() => fetchPostById(user.id)}
+					onClick={() => fetchPostById(user)}
 				>
 					<UserItem user={user} />
 				</div>
