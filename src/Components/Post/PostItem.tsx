@@ -1,4 +1,3 @@
-import React from "react";
 import { PostInterface } from "../../model/PostModel";
 
 interface PostItemprops {
@@ -16,11 +15,6 @@ const PostItem = ({ post }: PostItemprops) => {
 			<div className="row">
 				<div className="col">
 					<p> {post.body}</p>
-				</div>
-			</div>
-			<div className="row">
-				<div className="col" style={{ textAlignLast: "right" }}>
-					created by {post.id}
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,15 @@
 import React from 'react'
-import SecondScreen from "./SecondScreen";
+import PostScreen from "./Post/PostScreen";
+import { UserScreen } from "./User/UserScreen";
 
+//home screen contains UserScreen page to show all user & Post page also
 const HomeScreen = () => {
-	return <SecondScreen />;
+	return (
+		<div style={{ display: "flex", gap: 20 }}>
+			<UserScreen />
+			<PostScreen />
+		</div>
+	);
 };
 
 export default HomeScreen

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSnapshot } from "valtio";
 import state from "../../store";
 import PostList from "./PostList";
@@ -7,6 +6,7 @@ import { faker } from "@faker-js/faker";
 const PostScreen = () => {
 	const { selectedUser } = useSnapshot(state);
 
+	//user details page by default won't show
 	const UserDetails = () => (
 		<div className="container-fluid">
 			<div className="row ">
@@ -23,7 +23,7 @@ const PostScreen = () => {
 					/>
 				</div>
 				<div className="col-3">
-					<h1>User Details</h1>
+					<h1>{selectedUser && selectedUser.username}</h1>
 					<h6>
 						<span style={{ marginRight: 20 }}>Email:</span>
 						{selectedUser && selectedUser.email}
@@ -47,6 +47,7 @@ const PostScreen = () => {
 		</div>
 	);
 
+	//contains common  title for page
 	const AllPostTitle = () => (
 		<div className="jumbotron text-center">
 			<h1 className="display-4 font-weight-bold">Blog Post</h1>
@@ -66,33 +67,4 @@ const PostScreen = () => {
 	);
 };
 
-const UserDetails = () => {
-	const { selectedUser } = useSnapshot(state);
-	return (
-		<div className="container-fluid">
-			<div className="row">
-				<div className="col-2">
-					<img
-						src={faker.image.people(840, 640, true)}
-						className="rounded float-start"
-						style={{
-							width: 200,
-							height: 100,
-							borderRadius: "50px",
-						}}
-						alt="..."
-					/>
-				</div>
-				<div className="col">
-					<h2>User Details</h2>
-				</div>
-			</div>
-			<h6>
-				<span style={{ marginRight: 20 }}>Email:</span>
-				{selectedUser && selectedUser.email}
-			</h6>
-		</div>
-	);
-};
-
-export default PostScreen
+export default PostScreen;

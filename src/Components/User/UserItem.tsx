@@ -5,16 +5,20 @@ import { faker } from "@faker-js/faker";
 import { useSnapshot } from "valtio";
 import state from "../../store";
 
+//interface for userprops (if you didn't give it will thtough never error)
 interface UserItemProps {
 	user: UsersInterface;
 }
 
 export const UserItem = ({ user }: UserItemProps) => {
-	const { selectedUser, selectedId } = useSnapshot(state);
-
+	const { selectedUser } = useSnapshot(state);
+	const isSelected = selectedUser?.id === user.id;
 	return (
 		<>
-			<li className="list-group-item" aria-current="true">
+			<li
+				className={`list-group-item ${isSelected ? "active" : ""}`}
+				aria-current="true"
+			>
 				{" "}
 				{/* list-group-item active */}
 				<div className="row">

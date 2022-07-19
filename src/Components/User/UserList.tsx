@@ -8,10 +8,14 @@ import "./user.css";
 import { UserItem } from "./UserItem";
 
 export const UserList = () => {
-	const { userList: users } = useSnapshot(state);
+	const { userList: users } = useSnapshot(state); //for using valtio store variable
+
+	//fething all users
 	const fetchUser = () => {
 		UserManager.getAll();
 	};
+
+	//fetch by particuler userId
 	const fetchPostById = (user: UsersInterface) => {
 		PostManager.getElementByUserId(user);
 	};
@@ -22,7 +26,7 @@ export const UserList = () => {
 		<div>
 			{users.map((user: UsersInterface) => (
 				<div
-					style={{ cursor: "pointer" }}
+					style={{ cursor: "pointer" }}   //cursor pointer for showing mouse logo like clickable
 					key={user.id.toString()}
 					onClick={() => fetchPostById(user)}
 				>
@@ -31,4 +35,4 @@ export const UserList = () => {
 			))}
 		</div>
 	);
-};
+};;
