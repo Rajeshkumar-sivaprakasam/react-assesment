@@ -14,11 +14,7 @@ const PostScreen = () => {
 					<img
 						src={faker.image.people(640, 640, true)}
 						className="rounded float-start"
-						style={{
-							width: 200,
-							height: 100,
-							borderRadius: "50px",
-						}}
+						style={{ width: "100%", height: "100%", borderRadius: "50px" }}
 						alt="..."
 					/>
 				</div>
