@@ -35,7 +35,7 @@ export const UserItem = ({ user }: UserItemProps) => {
 						/>
 					</div>
 					<div className="col">
-						<h6>{user.username}</h6>
+						<h6 style={{ wordWrap: "break-word" }}>{user.username}</h6>
 						<p>{user.website}</p>
 					</div>
 				</div>
