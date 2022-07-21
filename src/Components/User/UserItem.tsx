@@ -4,6 +4,7 @@ import "./user.css";
 import { faker } from "@faker-js/faker";
 import { useSnapshot } from "valtio";
 import state from "../../store";
+import { PostManager } from "../../manager/PostManager";
 
 //interface for userprops (if you didn't give it will thtough never error)
 interface UserItemProps {
@@ -13,8 +14,13 @@ interface UserItemProps {
 export const UserItem = ({ user }: UserItemProps) => {
 	const { selectedUser } = useSnapshot(state);
 	const isSelected = selectedUser?.id === user.id;
+
+	//fetch by particuler userId
+	const fetchPostById = (user: UsersInterface) => {
+		PostManager.getElementByUserId(user);
+	};
 	return (
-		<>
+		<div onClick={() => fetchPostById(user)}>
 			<li
 				className={`list-group-item ${isSelected ? "active" : ""}`}
 				aria-current="true"
@@ -22,7 +28,7 @@ export const UserItem = ({ user }: UserItemProps) => {
 				{" "}
 				{/* list-group-item active */}
 				<div className="row">
-					<div className="col">
+					<div className="col-6">
 						<img
 							src={faker.image.people(200, 200, true)}
 							className="rounded float-start"
@@ -34,12 +40,12 @@ export const UserItem = ({ user }: UserItemProps) => {
 							alt="..."
 						/>
 					</div>
-					<div className="col">
+					<div className="col-6">
 						<h6 style={{ wordWrap: "break-word" }}>{user.username}</h6>
 						<p>{user.website}</p>
 					</div>
 				</div>
 			</li>
-		</>
+		</div>
 	);
 };

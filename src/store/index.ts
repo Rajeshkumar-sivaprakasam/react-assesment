@@ -6,12 +6,14 @@ interface props {
 	userList: UsersInterface[];
 	postList: PostInterface[];
 	selectedUser: UsersInterface | null;
+	isLoading: boolean;
 }
 //create valtio
 const state: props = proxy({
 	userList: [],
 	postList: [],
 	selectedUser: null,
+	isLoading: true,
 });
 
 export default state;

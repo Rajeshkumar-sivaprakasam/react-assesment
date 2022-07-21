@@ -12,7 +12,7 @@ export class PostManager {
 	};
 	// get post by user ID
 	static getElementByUserId = async (user: UsersInterface) => {
-		const postIdList = await UserService.getElementByUserId(user.id);
+		const postIdList = await PostService.getElementByUserId(user.id);
 		if (!postIdList) return;
 		state.selectedUser = user;
 		state.postList = postIdList;

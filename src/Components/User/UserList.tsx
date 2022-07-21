@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSnapshot } from "valtio";
-import { PostManager } from "../../manager/PostManager";
 import { UserManager } from "../../manager/UserManager";
 import { UsersInterface } from "../../model/UserModel";
 import state from "../../store";
@@ -15,10 +14,6 @@ export const UserList = () => {
 		UserManager.getAll();
 	};
 
-	//fetch by particuler userId
-	const fetchPostById = (user: UsersInterface) => {
-		PostManager.getElementByUserId(user);
-	};
 	useEffect(() => {
 		fetchUser();
 	}, []);
@@ -26,9 +21,8 @@ export const UserList = () => {
 		<div>
 			{users.map((user: UsersInterface) => (
 				<div
-					style={{ cursor: "pointer" }}   //cursor pointer for showing mouse logo like clickable
+					style={{ cursor: "pointer" }} //cursor pointer for showing mouse logo like clickable
 					key={user.id.toString()}
-					onClick={() => fetchPostById(user)}
 				>
 					<UserItem user={user} />
 				</div>
